@@ -14,3 +14,23 @@ Map::Map(int width, int height, int length) {
 		}
 	}
 }
+
+
+int Map::getBlock(int x, int y, int z) {
+	return field.at(x).at(y).at(z);
+}
+
+
+int Map::getWidth() {
+	return width;
+}
+
+
+int Map::getHeight() {
+	return height;
+}
+
+
+int Map::getLength() {
+	return length;
+}
