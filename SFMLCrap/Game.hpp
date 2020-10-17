@@ -1,8 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-#include "Map.h"
-#include "Utils.h"
+#include "Map.hpp"
+#include "Utils.hpp"
+#include "Block.hpp"
 
 using namespace sf;
 
