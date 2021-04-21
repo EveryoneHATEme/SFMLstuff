@@ -63,16 +63,16 @@ void Map::draw(sf::RenderWindow* window, sf::Vector3f sizes) {
 }
 
 
-int Map::getWidth() {
+int Map::getWidth() const {
 	return width;
 }
 
 
-int Map::getHeight() {
+int Map::getHeight() const {
 	return height;
 }
 
 
-int Map::getLength() {
+int Map::getLength() const {
 	return length;
 }

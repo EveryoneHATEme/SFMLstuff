@@ -15,7 +15,7 @@ private:
 
 public:
 	Block(float width, float height, float length);
-	Block(sf::Vector3f sizes);
+	explicit Block(sf::Vector3f sizes);
 	void draw(sf::RenderWindow* window, sf::Vector2f position);
 
 	void drawTop(sf::RenderWindow* window, sf::Vector2f position);

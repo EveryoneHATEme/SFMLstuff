@@ -21,8 +21,8 @@ public:
 	int& getBlock(int x, int y, int z);
 	void draw(sf::RenderWindow* window, sf::Vector3f sizes);
 
-	int getWidth();
-	int getHeight();
-	int getLength();
+	int getWidth() const;
+    int getHeight() const;
+    int getLength() const;
 };
 

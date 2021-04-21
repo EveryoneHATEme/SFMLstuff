@@ -13,7 +13,7 @@ class Game
 private: 
 	RenderWindow* window;
 	Clock* clock;
-	Event currentEvent;
+	Event currentEvent{};
 	Map* map;
 
 public:
