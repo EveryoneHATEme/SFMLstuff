@@ -3,7 +3,7 @@
 
 int main()
 {
-	Game* game = new Game(600, 600, "FUCK YOU!", 30);
+	Game* game = new Game(600, 600, "FUCK YOU!", 144);
 
 	game->loop();
 

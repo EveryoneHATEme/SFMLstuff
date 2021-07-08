@@ -30,12 +30,10 @@ void Game::draw() {
 void Game::update() {
     if (leftMouseKeyPressed) {
         View currentView = window->getView();
-        Vector2f delta = Vector2f(currentMousePosition - lastMousePosition);
+        Vector2f delta = Vector2f(lastMousePosition - currentMousePosition);
         currentView.move(delta);
-        cout << currentMousePosition.x << ' ' << currentMousePosition.y << '\n';
-        cout << lastMousePosition.x << ' ' << lastMousePosition.y << '\n';
-        cout << delta.x << ' ' << delta.y << '\n' << '\n';
         window->setView(currentView);
+        lastMousePosition = currentMousePosition;
     }
 	clock->restart();
 	draw();
@@ -57,14 +55,12 @@ void Game::checkEvents() {
 
         if (currentEvent.type == Event::MouseMoved) {
             lastMousePosition = currentMousePosition;
-            currentMousePosition = Vector2i(currentEvent.mouseButton.x, currentEvent.mouseButton.y);
+            currentMousePosition = sf::Mouse::getPosition(*window);
         }
 
         if (currentEvent.type == Event::MouseButtonPressed) {
             if (currentEvent.mouseButton.button == sf::Mouse::Left) {
                 leftMouseKeyPressed = true;
-                currentMousePosition = Vector2i(currentEvent.mouseButton.x, currentEvent.mouseButton.y);
-                lastMousePosition = currentMousePosition;
             }
         }
 
@@ -76,9 +72,9 @@ void Game::checkEvents() {
             if (currentEvent.mouseWheelScroll.wheel == sf::Mouse::VerticalWheel) {
                 View current_view = window->getView();
                 float delta = currentEvent.mouseWheelScroll.delta;
-                if (delta > 0)
+                if (currentEvent.mouseWheelScroll.delta > 0)
                     current_view.zoom(1.f / (delta + 1));
-                if (delta < 0)
+                else if (delta < 0)
                     current_view.zoom(1 - delta);
 
                 window->setView(current_view);
